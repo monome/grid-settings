@@ -6,10 +6,10 @@ local state = {
 }
 
 mod.hook.register("system_post_startup", "read grid-settings", function()
-  local f = io.open(_path.data..'grid-settings.state')
+  local f = io.open(path.data..'grid-settings.state')
   if f ~= nil then
     io.close(f)
-    state = dofile(_path.data..'grid-settings.state')
+    state = dofile(path.data..'grid-settings.state')
   end
 end)
 
