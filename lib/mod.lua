@@ -27,7 +27,7 @@ end)
 mod.hook.register("script_pre_init", "my init hacks", function()
   for n=1,4 do
     grid.vports[n]:intensity(state.intensity[n])
-    grid.vports[n]:rotatoin(state.rotation[n])
+    grid.vports[n]:rotation(state.rotation[n])
   end
 end)
 
@@ -51,7 +51,7 @@ m.enc = function(n, d)
   if n == 2 then i = util.clamp(i+d,1,4)
   elseif n == 3 then
     state.intensity[i] = util.clamp(state.intensity[i]+d,0,15)
-    grid.vports[i]:intensity(state.intensity[i]) 
+    grid.vports[i]:intensity(state.intensity[i])
   end
   mod.menu.redraw()
 end
