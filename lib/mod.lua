@@ -6,15 +6,15 @@ local state = {
 }
 
 mod.hook.register("system_post_startup", "read grid-settings", function()
-  local f = io.open(_path.data..'grid-settings.state')
+  local f = io.open(paths.data..'grid-settings.state')
   if f ~= nil then
     io.close(f)
-    state = dofile(_path.data..'grid-settings.state')
+    state = dofile(paths.data..'grid-settings.state')
   end
 end)
 
 mod.hook.register("system_pre_shutdown", "write grid-settings", function()
-  local f = io.open(_path.data..'grid-settings.state',"w+")
+  local f = io.open(paths.data..'grid-settings.state',"w+")
   io.output(f)
   io.write("return { intensity={")
   for n=1,4 do io.write(state.intensity[n]..",") end
